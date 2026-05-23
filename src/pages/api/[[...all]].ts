@@ -2,7 +2,7 @@ import dns from 'dns';
 dns.setDefaultResultOrder("ipv4first");
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import app from '../../../backend/src/app';
+import app from '../../../backend/src/publicApp';
 
 // Disable Next.js body parser — Express handles it (needed for multer/file uploads)
 export const config = {
