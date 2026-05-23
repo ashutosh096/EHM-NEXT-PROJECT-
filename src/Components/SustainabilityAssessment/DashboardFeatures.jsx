@@ -94,7 +94,7 @@ const DashboardFeaturesBento = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative py-12 px-6 overflow-hidden">
+    <section className="relative py-8 px-6 overflow-hidden">
       {/* Layered teal gradient — brand bg */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
       <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95" />
@@ -102,8 +102,8 @@ const DashboardFeaturesBento = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-100/30 to-teal-50/50" />
       {/* Top & bottom white fades */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-white via-white/70 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/70 to-transparent z-10" />
 
       <div className="max-w-7xl mx-auto relative z-10 px-6">
         {/* Header */}
@@ -111,7 +111,7 @@ const DashboardFeaturesBento = () => {
           <span className="block text-slate-800">Dashboard</span>
           <span className="text-[#4B7635]">Features & Plug-ins</span>
         </SectionHeading>
-        <p className="text-lg text-slate-600 max-w-3xl mx-auto text-center mb-8">
+        <p className="text-lg text-slate-600 max-w-3xl mx-auto text-center mb-6">
           Intelligent integrations and insights that transform sustainability
           data into strategic, measurable outcomes.
         </p>

@@ -126,7 +126,7 @@ const EhmBrief = () => {
   const tab = TABS[active];
 
   return (
-    <section className="relative font-sans overflow-hidden py-8">
+    <section className="relative font-sans overflow-hidden py-4">
 
       {/* ── Background — mirrors homepage EhmBrief ── */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
@@ -135,11 +135,11 @@ const EhmBrief = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-150/30 to-teal-50/50" />
       {/* Top & bottom white fades */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-white via-white/70 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/70 to-transparent z-10" />
 
       {/* ── Heading ── */}
-      <div className="relative text-center w-full mx-auto pt-10 pb-6 sm:pt-14 sm:pb-8 z-20">
+      <div className="relative text-center w-full mx-auto pt-6 pb-4 sm:pt-8 sm:pb-5 z-20">
         <SectionHeading>See The Impact in Real Time</SectionHeading>
         <p className="mt-3 text-gray-500 text-sm sm:text-base max-w-2xl mx-auto px-4">
           EHM's Sustainability Dashboard transforms ESG and operational data into live visual insights —
@@ -149,7 +149,7 @@ const EhmBrief = () => {
 
       {/* ── Tab Bar ── */}
       <div className="relative z-20 w-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-32 pb-4">
-        <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8">
+        <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-5">
           {TABS.map((t, i) => (
             <button
               key={t.id}

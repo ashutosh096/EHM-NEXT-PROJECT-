@@ -57,7 +57,7 @@ const ScrollRevealElements = ({ children, className, staggerAmount }) => {
 
 export default function ImplementationPlanSection() {
   return (
-    <section className="relative pt-12 pb-4 px-6 overflow-hidden">
+    <section className="relative pt-8 pb-0 px-6 overflow-hidden">
       {/* Layered teal gradient — brand bg */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
       <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95" />
@@ -65,13 +65,13 @@ export default function ImplementationPlanSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-100/30 to-teal-50/50" />
       {/* Top & bottom white fades */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white via-white/70 to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white/70 to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white/70 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-white/50 to-transparent z-10" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div>
           {/* Header matching DashboardFeatures style */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-8">
             <motion.div 
               className="text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export default function ImplementationPlanSection() {
                   ></motion.span>
                 </h2>
                 <motion.p 
-                  className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mt-8"
+                  className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mt-5"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
@@ -112,7 +112,7 @@ export default function ImplementationPlanSection() {
           </div>
 
           {/* Desktop view */}
-          <div className="hidden lg:flex justify-between items-start relative py-2 mx-auto">
+          <div className="hidden lg:flex justify-between items-start relative py-0 mx-auto">
             <svg className="absolute top-12 left-0 w-full h-full z-0" preserveAspectRatio="none" viewBox="0 0 900 300">
               <path
                 d="M 50 100 C 200 100, 200 196, 450 196 C 700 196, 700 100, 850 100"
@@ -130,10 +130,10 @@ export default function ImplementationPlanSection() {
                 const isOdd = index % 2 !== 0;
                 return (
                   <motion.div key={index} className="relative flex flex-col items-center z-10 group">
-                    <div className={`relative p-2 bg-white rounded-full border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:shadow-xl ${isOdd ? 'mt-28' : ''}`}>
+                    <div className={`relative p-2 bg-white rounded-full border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:shadow-xl ${isOdd ? 'mt-20' : ''}`}>
                       <img src={item.image} alt={item.title} className="w-20 h-20 rounded-full object-cover" loading="lazy" />
                     </div>
-                    <div className={`mt-6 w-64 bg-white p-6 rounded-2xl shadow-lg border border-slate-200 text-center transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl`}>
+                    <div className={`mt-4 w-64 bg-white p-6 rounded-2xl shadow-lg border border-slate-200 text-center transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl`}>
                       <h4 className="font-bold text-lg text-slate-700">{item.title}</h4>
                       <ul className="mt-2 text-sm text-left text-slate-500 space-y-1">
                         {item.points.map((point, pIdx) => (
@@ -151,10 +151,10 @@ export default function ImplementationPlanSection() {
           </div>
 
           {/* Mobile view */}
-          <div className="lg:hidden relative max-w-xl mx-auto mt-12">
+          <div className="lg:hidden relative max-w-xl mx-auto mt-8">
             <div className="absolute left-12 top-0 h-full w-0.5 bg-[#4B7635]"></div>
             <ScrollRevealElements
-              className="space-y-16"
+              className="space-y-10"
               staggerAmount={0.5}
             >
               {steps.map((item, index) => (

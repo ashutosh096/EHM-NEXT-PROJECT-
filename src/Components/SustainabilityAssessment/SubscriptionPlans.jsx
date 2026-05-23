@@ -70,7 +70,7 @@ const SubscriptionPlans = () => {
     navigate("/contact/starc", { state: { selectedPlan: planName } });
 
   return (
-    <section className="relative font-sans pt-8 pb-16 overflow-hidden">
+    <section className="relative font-sans pt-4 pb-10 overflow-hidden">
       {/* Layered teal gradient — brand bg */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
       <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95" />
@@ -78,8 +78,8 @@ const SubscriptionPlans = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-100/30 to-teal-50/50" />
       {/* Top & bottom white fades */}
-      <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white/70 to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-white/50 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/70 to-transparent z-10" />
 
       <div className="relative z-20">
         <SectionHeading>
@@ -87,7 +87,7 @@ const SubscriptionPlans = () => {
           <span className="text-[#3B66BC]">Your Sustainability Goals</span>
         </SectionHeading>
 
-        <p className="text-lg text-slate-500 max-w-2xl mx-auto text-center mb-6 px-4">
+        <p className="text-lg text-slate-500 max-w-2xl mx-auto text-center mb-4 px-4">
           Transparent pricing and features designed to scale with your
           institution's environmental commitments.
         </p>
@@ -97,7 +97,7 @@ const SubscriptionPlans = () => {
           we wrap it in an overflow-x-auto container with custom scrollbar hiding.
           It forces a minimum width so mobile users can simply swipe horizontally.
         */}
-        <div className="max-w-5xl mx-auto px-4 pt-14 pb-8 w-full overflow-x-auto scrollbar-hide">
+        <div className="max-w-5xl mx-auto px-4 pt-10 pb-4 w-full overflow-x-auto scrollbar-hide">
           <div
             className="min-w-[800px] lg:min-w-0 pb-4"
             style={{
@@ -255,12 +255,6 @@ const SubscriptionPlans = () => {
           </div>
         </div>
 
-        {/* Trust badges */}
-        <div className="mt-6 flex items-center justify-center opacity-60">
-          <p className="text-slate-400 text-sm font-bold tracking-widest uppercase">
-            Trusted by 20+ Institutions
-          </p>
-        </div>
       </div>
     </section>
   );
