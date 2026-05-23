@@ -5,13 +5,9 @@ import path from "path";
 import dotenv from "dotenv";
 import dns from "dns";
 
-// Force Node to prefer IPv4 DNS resolution to fix MongoDB querySrv ECONNREFUSED on Windows
+// Prefer IPv4 without overriding the platform DNS resolver. Overriding DNS
+// servers can break MongoDB SRV lookups on serverless hosts such as Vercel.
 dns.setDefaultResultOrder("ipv4first");
-try {
-  dns.setServers(["8.8.8.8", "1.1.1.1"]);
-} catch (e) {
-  console.warn("Failed to set DNS servers:", e);
-}
 import { AuthAdminRouter } from "./routes/AuthAdmin";
 import { BlogUserRouter } from "./routes/BlogUser";
 import { BlogAdminRouter } from "./routes/BlogAdmin";
@@ -53,27 +49,48 @@ app.use(
 
 app.use(express.json());
 
-// Connect to MongoDB only once (avoid re-connecting on every hot reload)
-let isConnected = false;
+// Connect to MongoDB once per server/runtime instance and let concurrent
+// requests share the same pending connection. This matters on Vercel cold starts.
+let connectionPromise: Promise<typeof mongoose> | null = null;
 async function connectDB() {
-  if (isConnected) return;
-  try {
-    if (!process.env.MONGO_URL) {
-      throw new Error("MONGO_URL is not defined in environment");
-    }
-    console.log("Attempting MongoDB connect. MONGO_URL:", process.env.MONGO_URL, "DNS servers:", dns.getServers());
-    await mongoose.connect(process.env.MONGO_URL);
-    isConnected = true;
-    console.log("MongoDB connected successfully");
-  } catch (error: any) {
-    console.error("MongoDB connection error:", error.message);
-  }
-}
+  if (mongoose.connection.readyState === 1) return mongoose;
 
-connectDB();
+  if (!process.env.MONGO_URL) {
+    throw new Error("MONGO_URL is not defined in environment");
+  }
+
+  if (!connectionPromise) {
+    connectionPromise = mongoose
+      .connect(process.env.MONGO_URL, {
+        serverSelectionTimeoutMS: 10000,
+      })
+      .then((connection) => {
+        console.log("MongoDB connected successfully");
+        return connection;
+      })
+      .catch((error) => {
+        connectionPromise = null;
+        throw error;
+      });
+  }
+
+  return connectionPromise;
+}
 
 app.use("/hello", (req: any, res: any) => {
   res.send("Hello World");
+});
+
+app.use(async (_req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error: any) {
+    console.error("MongoDB connection error:", error.message);
+    res.status(503).json({
+      message: "Database connection is unavailable. Please try again shortly.",
+    });
+  }
 });
 
 // Admin auth routes
