@@ -57,7 +57,7 @@ const ScrollRevealElements = ({ children, className, staggerAmount }) => {
 
 export default function ImplementationPlanSection() {
   return (
-    <section className="relative py-12 px-6 overflow-hidden">
+    <section className="relative pt-12 pb-4 px-6 overflow-hidden">
       {/* Layered teal gradient — brand bg */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
       <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95" />
@@ -65,13 +65,13 @@ export default function ImplementationPlanSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-100/30 to-teal-50/50" />
       {/* Top & bottom white fades */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white via-white/70 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white/70 to-transparent z-10" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div>
           {/* Header matching DashboardFeatures style */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <motion.div 
               className="text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -112,7 +112,7 @@ export default function ImplementationPlanSection() {
           </div>
 
           {/* Desktop view */}
-          <div className="hidden lg:flex justify-between items-start relative py-4 mx-auto">
+          <div className="hidden lg:flex justify-between items-start relative py-2 mx-auto">
             <svg className="absolute top-12 left-0 w-full h-full z-0" preserveAspectRatio="none" viewBox="0 0 900 300">
               <path
                 d="M 50 100 C 200 100, 200 196, 450 196 C 700 196, 700 100, 850 100"

@@ -220,7 +220,7 @@ const StarcHero = () => {
               <div className="flex items-start justify-between mb-5">
                 <div>
                   <p className="font-bold text-white text-base">ESG Performance Dashboard</p>
-                  <p className="text-[11px] text-white/40 mt-0.5">Real-time sustainability metrics — CSJMU Campus</p>
+                  <p className="text-[11px] text-white/40 mt-0.5">Real-time sustainability metrics</p>
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-1 rounded-full border text-[10px] font-semibold"
                   style={{ color: "#00ff9d", backgroundColor: "rgba(0,255,157,0.1)", borderColor: "rgba(0,255,157,0.3)" }}>
